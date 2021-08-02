@@ -14,5 +14,20 @@ public class RecipeRepository {
 		return true;
 		
 	}
+	
+	public ArrayList<Recipe> getRecipes() {
+		return recipes;
+	}
+	
+	public Recipe findRecipeById(String name) {
+		for(int i = 0 ; i < recipes.size() ; i++ ) {
+			Recipe recipe = recipes.get(i);
+			
+			if (recipe.getName().equals(name)) {
+				return recipe;
+			}
+		}
+		return null;
+	}
 
 }

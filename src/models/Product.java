@@ -57,6 +57,12 @@ public class Product {
 		this.quiantity = quiantity;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "Product[ *Marca: " + brand + " *Nombre: " +  name + " *Precio: " + price + " *Cantidad: " + quiantity+ " ]";
+	}
+	
 
 	
 }

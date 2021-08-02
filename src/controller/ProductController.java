@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import data.ProductRepository;
 import models.Product;
 
@@ -34,6 +36,17 @@ public class ProductController {
 		return "Hubo un error al crear el Producto";
 		}
 		
+	}
+	
+	public ArrayList<Product> getProducts() {
+		ArrayList<Product> products = productRepository.getAll();
+		return products;
+		
+	}
+	
+	public Product searchProduct(String id) {
+		Product product = productRepository.findProductById(id);
+		return product;	
 	}
 	
 	

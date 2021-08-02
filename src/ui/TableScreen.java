@@ -1,8 +1,11 @@
 package ui;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+
 import controller.TableController;
+import models.Table;
 
 public class TableScreen {
 	
@@ -31,6 +34,31 @@ public class TableScreen {
 	 String result = tableController.crateTable(tableNumber, capacity, location);
 	 System.out.println(result);
 	 
+	}
+	
+	public void listTables() {
+		ArrayList<Table> tables = tableController.getAll();
+		
+		if(tables.size() == 0 ) {
+			System.out.println("No hay mesas creadas en la base de datos");
+		}
+		
+		for(int i = 0 ; i < tables.size(); i ++) {
+			Table table = tables.get(i);
+			System.out.println(table.toString());
+		}
+	}
+	
+	public void searchTable() {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Ingrese el numero de la mesa para buscar");
+		String tableNumber = sc.nextLine();
+		
+		if(tableNumber != null) {
+			System.out.println(tableNumber.toString());
+		} else {}
+			System.out.println("No hay ninguna mesa creada");
 	}
 
 }

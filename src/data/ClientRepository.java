@@ -11,9 +11,26 @@ public class ClientRepository {
 	public boolean create(Client client) {
 		
 		clients.add(client);
-		
 		return true;
+	}
+	
+	public ArrayList<Client> getAll(){
+		return clients;
+	}
+	
+	public Client findClientById(String id) {
 		
+		for (int i = 0 ; i < clients.size(); i ++) {
+			
+			Client client = clients.get(i);
+			
+			if(client.getIdentityDocument().equals(id)) {
+				
+				return client;
+			} 
+		}
+		
+		return null;
 	}
 
 	

@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import data.ClientRepository;
 import models.Client;
 
@@ -33,4 +35,15 @@ public class ClientController {
 		
 	}
 
+	
+	public ArrayList<Client> getClients() {
+		return clientRepository.getAll();
+				
+	}
+	
+	public Client searchClient(String id) {
+		Client client = clientRepository.findClientById(id);
+		return client;
+	}
+	
 }

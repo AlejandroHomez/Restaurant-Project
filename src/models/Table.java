@@ -44,6 +44,13 @@ public class Table {
 		this.location = location;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "Table[ *Numero de mesa: " + tableNumber + " *Capacidad: " +  capacity + " *Ubicacion: "+ location + " ]";
+	}
+	
+	
 
 
 }

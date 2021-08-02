@@ -55,6 +55,11 @@ public class Client {
 		this.hasChildren = hasChildren;
 	}
 	
+	@Override
+	public String toString() {
+		System.out.println("");
+		return "Client[ *Nombre: " + name + " *Apellido: " +  lastName + " *ID: " + identityDocument + " *Tiene hijos: " + hasChildren+ " ]";
+	}
 
 
 }

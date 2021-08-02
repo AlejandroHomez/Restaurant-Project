@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import data.RecipeRepository;
 
 import models.Recipe;
@@ -30,6 +32,16 @@ public class RecipeController {
 		}
 		
 		
+	}
+	
+	public ArrayList<Recipe> getAll() {
+		ArrayList<Recipe> recipes = recipeRepository.getRecipes();
+		return recipes;
+	}
+	
+	public Recipe searchRecipe(String name) {
+		Recipe recipe = recipeRepository.findRecipeById(name);
+		return recipe;
 	}
 	
 	

@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import data.TableRepository;
 import models.Table;
 
@@ -29,6 +31,18 @@ public class TableController {
 			System.out.println("");
 			return "Hubo un error al crear la mesa";
 		}
+		
+	}
+	
+	public ArrayList<Table> getAll(){
+		ArrayList<Table> tables = tableRepocitory.getTables();
+		return tables;
+	}
+	
+	public Table searchTable(String tableNumer) {
+		
+		Table table = tableRepocitory.findTableById(tableNumer);
+		return table;
 		
 	}
 

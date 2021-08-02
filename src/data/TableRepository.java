@@ -13,5 +13,21 @@ public class TableRepository {
 		
 		return true;
 	}
-
+	
+	public ArrayList<Table> getTables(){
+		return tables;
+	}
+	
+	public Table findTableById(String tableNumber) {
+		
+		for(int i = 0 ; i < tables.size(); i++) {
+			Table table = tables.get(i);
+			
+			if(table.getNumberTable().equals(tableNumber)) {
+				return table;
+			}
+		}
+		return null;
+	}
+	
 }
