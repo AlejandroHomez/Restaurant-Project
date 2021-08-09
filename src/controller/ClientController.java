@@ -46,4 +46,20 @@ public class ClientController {
 		return client;
 	}
 	
+
+	public String updateClient(Client client, String name, String lastName, String identityDocument, boolean hasChildren) {
+		
+		Client clientUpdate = new Client(name, lastName, identityDocument, hasChildren);
+		
+		clientRepository.updateClient(client,clientUpdate);
+		
+		return null;
+	}
+	
+	public boolean deleteClient(String id) {
+		
+		return clientRepository.deleteClient(id);
+		
+	}
+	
 }

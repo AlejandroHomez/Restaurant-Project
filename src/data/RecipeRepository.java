@@ -2,6 +2,7 @@ package data;
 
 import java.util.ArrayList;
 
+import models.Product;
 import models.Recipe;
 
 public class RecipeRepository {
@@ -28,6 +29,26 @@ public class RecipeRepository {
 			}
 		}
 		return null;
+	}
+	
+	public boolean updateRecipe(Recipe recipe, Recipe updateRecipe) {
+		
+		int position = recipes.indexOf(recipe);
+		
+		recipes.set(position, updateRecipe);
+		
+		return true;
+	}
+	
+	public boolean deleteRecipe(String id) {
+		for(int i = 0 ; i < recipes.size(); i++) {
+			Recipe recipe = recipes.get(i);
+			if(recipe.getName().equals(id)) {
+				recipes.remove(i);
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

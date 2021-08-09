@@ -1,6 +1,8 @@
 package data;
 
 import java.util.ArrayList;
+
+import models.Recipe;
 import models.Table;
 
 public class TableRepository {
@@ -28,6 +30,26 @@ public class TableRepository {
 			}
 		}
 		return null;
+	}
+	
+	public boolean updateTable(Table table, Table updateTable) {
+		
+		int position = tables.indexOf(table);
+		
+		tables.set(position, updateTable);
+		
+		return true;
+	}
+	
+	public boolean deleteTable(String id) {
+		for(int i = 0 ; i < tables.size(); i++) {
+			Table table = tables.get(i);
+			if(table.getNumberTable().equals(id)) {
+				tables.remove(i);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }

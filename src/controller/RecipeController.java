@@ -44,6 +44,21 @@ public class RecipeController {
 		return recipe;
 	}
 	
+	public String updateRecipes(Recipe recipe, String name, double price) {
+		
+		Recipe updateRecipe = new Recipe(name, price);
+		recipeRepository.updateRecipe(recipe, updateRecipe);
+		return null;
+		
+	}
+	
+	public boolean deleteRecipe(String id) {
+		
+		return recipeRepository.deleteRecipe(id);
+		
+	}
+	
+	
 	
 
 }

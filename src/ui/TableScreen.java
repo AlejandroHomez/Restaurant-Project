@@ -60,5 +60,62 @@ public class TableScreen {
 		} else {}
 			System.out.println("No hay ninguna mesa creada");
 	}
+	
+	public void updateTable() {
+		
+		Scanner scUpdate = new Scanner(System.in);
+		System.out.println("Ingrese el número de la mesa que desea actualizar");
+		String id = scUpdate.nextLine();
+		
+		Table table = tableController.searchTable(id);
+		
+		if(table != null) {
+			
+			String tableNumber;
+			int capacity;
+			String location;
+			
+			Scanner sc = new Scanner(System.in);
+				
+			 System.out.println("");
+			 System.out.println("----------------ACTUALIZAR MESA----------------");
+			 System.out.println("");
+			 
+			 System.out.println("Ingrese el numero de la mesa: ");
+			 tableNumber = sc.nextLine();
+			 System.out.println("Ingrese la capicidad de personas que tiene la mesa: ");
+			 capacity = Integer.parseInt(sc.nextLine());
+			 System.out.println("Ingrese la ubicacion de la mesa: ");
+			 location = sc.nextLine();
+			 
+			 
+			 String result = tableController.updateTable(table, tableNumber, capacity, location);
+			 
+			 System.out.println("La mesa se actualizo con exito");
+			}else {
+			System.out.println("No se encontro ninguna mesa con el numero: " + id);
+			}
+			
+		}
+	
+	
+
+	public void deleteTable() {
+		
+		Scanner scDeleted = new Scanner(System.in);
+		System.out.println("Ingrese el nombre de la receta que desea eliminar:");
+		String id = scDeleted.nextLine();
+		
+		Boolean tabletDeleted = tableController.deleteTable(id);
+		
+		if (tabletDeleted) {
+			System.out.println("Se eliminó la mesa con exito");
+		} else {
+			System.out.println("No se encontró la mesa con el numero: " + scDeleted);
+		}
+	}
+		
+		
+		
 
 }

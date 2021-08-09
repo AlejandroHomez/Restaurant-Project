@@ -45,5 +45,19 @@ public class TableController {
 		return table;
 		
 	}
+	
+	public String updateTable(Table table, String numberTable , int capacity , String location) {
+		
+		Table uptadeTable = new Table(numberTable,capacity,location);
+		tableRepocitory.updateTable(table, uptadeTable);
+
+		return null;
+	}
+	
+	public boolean deleteTable(String id) {
+		
+		return tableRepocitory.deleteTable(id);
+		
+	}
 
 }

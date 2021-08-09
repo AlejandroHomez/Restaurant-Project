@@ -25,8 +25,8 @@ public class ProductController {
 			return "la cantidad debe ser mayor a  0";
 		}
 		
-	Product produt = new Product(brand, name, price, quantity);
-	boolean result = productRepository.createProduct(produt);
+	Product product = new Product(brand, name, price, quantity);
+	boolean result = productRepository.createProduct(product);
 	
 	if (result) {
 		System.out.println("");
@@ -47,6 +47,20 @@ public class ProductController {
 	public Product searchProduct(String id) {
 		Product product = productRepository.findProductById(id);
 		return product;	
+	}
+	
+	public String productUpdate(Product product, String brand, String name, double price, int quantity) {
+		
+		Product productUpdate = new Product(brand ,name ,price ,quantity );
+		productRepository.productUpdate(product, productUpdate);
+		
+		return null;
+	}
+	
+	public boolean deleteProduct(String id) {
+			
+			return productRepository.deleteProduct(id);
+			
 	}
 	
 	
