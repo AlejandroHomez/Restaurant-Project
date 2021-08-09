@@ -14,6 +14,9 @@ public class ClientController {
 		if(name.trim().length() <= 3) {
 			return "El nombre no puede tener menos de 3 caracteres";
 		}
+		if(name.trim().length() > 30) {
+			return "El nombre no puede tener mas de 30 caracteres";
+		}
 		if(lastName.trim().length() <= 3) {
 			return "El Apellido no puede tener menos de 3 caracteres";
 		}

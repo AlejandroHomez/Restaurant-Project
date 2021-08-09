@@ -10,10 +10,10 @@ public class MenuScreen {
 		System.out.println("");
 		System.out.println("Seleccione una opción del menú");
 		System.out.println("--------------------");
-		System.out.println("1.Tratar Clientes");
-		System.out.println("2.Tratar Producto");
-		System.out.println("3.Tratar Receta");
-		System.out.println("4.Tratar Mesa");
+		System.out.println("1.Seccion Clientes");
+		System.out.println("2.Seccion Productos");
+		System.out.println("3.Seccion Recetas");
+		System.out.println("4.Seccion Mesas");
 		System.out.println("");
 		System.out.println("8.Salir");
 		

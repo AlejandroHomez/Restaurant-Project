@@ -12,6 +12,7 @@ public class RecipeScreen {
 	
 	public void createRecipe() {
 	
+	String id;
 	String name;
 	double price;
 	
@@ -21,15 +22,16 @@ public class RecipeScreen {
 	 System.out.println("----------------CREAR RECETA----------------");
 	 System.out.println("");
 	 
+	 System.out.println("Ingrese el id de la Receta: ");
+	 id = sc.nextLine();
 	 System.out.println("Ingrese el nombre de la Receta: ");
 	 name = sc.nextLine();
 	 System.out.println("Ingrese el precio: ");
 	 price = Double.parseDouble(sc.nextLine());
 	 
 	 
-	 String result = recipeController.createRecipe(name, price);
+	 String result = recipeController.createRecipe(id, name, price);
 	 System.out.print(result);
-	 
 	 
 	}
 	
@@ -50,27 +52,28 @@ public class RecipeScreen {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("");
-		System.out.println("Ingrese el nombre de la receta para buscar");
-		String name = sc.nextLine();
-		Recipe recipes = recipeController.searchRecipe(name);
+		System.out.println("Ingrese el id de la receta para buscar");
+		String id = sc.nextLine();
+		Recipe recipes = recipeController.searchRecipe(id);
 		
 		if(recipes != null) {
 			System.out.println(recipes.toString());
 		} else  {
-			System.out.println("No existe ninguna receta con este nombre");
+			System.out.println("No existe ninguna receta con el id: " + id);
 		}
 	}
 	
 	public void updateRecipe() {
 		
 		Scanner scUpdate = new Scanner(System.in);
-		System.out.println("Ingrese el nombre de la receta que desea buscar");
-		String nameId = scUpdate.nextLine();
+		System.out.println("Ingrese el id de la receta que desea buscar");
+		String idUpdate = scUpdate.nextLine();
 		
-		Recipe recipe = recipeController.searchRecipe(nameId);
+		Recipe recipe = recipeController.searchRecipe(idUpdate);
 		
 		if(recipe != null) {
 			
+		String id;
 		String name;
 		double price;
 		
@@ -80,24 +83,26 @@ public class RecipeScreen {
 		 System.out.println("----------------ACTUALIZAR RECETA----------------");
 		 System.out.println("");
 		 
+		 System.out.println("Ingrese el id de la Receta: ");
+		 id = sc.nextLine();
 		 System.out.println("Ingrese el nombre de la Receta: ");
 		 name = sc.nextLine();
 		 System.out.println("Ingrese el precio: ");
 		 price = Double.parseDouble(sc.nextLine());
 		 
 		 
-		 String result = recipeController.updateRecipes(recipe, name, price);
-		
+		 String result = recipeController.updateRecipes(recipe, id, name, price);
+		 
 		 System.out.print("La Receta se actualizo con exito");
 		} else {
-		 System.out.print("No se encontro ninguna receta con el nombre: " + nameId);
+		 System.out.print("No se encontro ninguna receta con el nombre: " + idUpdate);
 		}		
 	}
 		
 	public void deleteRecipe() {
 		
 		Scanner scDeleted = new Scanner(System.in);
-		System.out.println("Ingrese el nombre de la receta que desea eliminar:");
+		System.out.println("Ingrese el id de la receta que desea eliminar:");
 		String id = scDeleted.nextLine();
 		
 		Boolean recipeDeleted = recipeController.deleteRecipe(id);
@@ -105,7 +110,7 @@ public class RecipeScreen {
 		if (recipeDeleted ) {
 			System.out.println("Se eliminó la receta con exito");
 		} else {
-			System.out.println("No se encontró la receta con el nombre: " + scDeleted);
+			System.out.println("No se encontró la receta con el id: " + id);
 		}
 	}
 		

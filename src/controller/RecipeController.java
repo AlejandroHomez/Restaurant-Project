@@ -11,16 +11,22 @@ public class RecipeController {
 	RecipeRepository recipeRepository = new RecipeRepository();
 	
 	
-	public String createRecipe(String name, double price) {
+	public String createRecipe(String id, String name, double price) {
 		
-		if(name.trim().length() <= 4) {
-			return "El nombre de la receta debe ser mayor a 4 caracteres";
+		if(id.trim().length() >= 10) {
+			return "El id de la receta debe ser menor a 10 cararcaters";
+		}
+		if(name.trim().length() <= 3) {
+			return "El nombre de la receta debe ser mayor a 3 caracteres";
+		}
+		if(name.trim().length() >= 30) {
+			return "El nombre de la receta debe ser menor a 30 caracteres";
 		}
 		if(price < 8000) {
 			return "El precio debeser mayor a $8.000";
 		}
 		
-		Recipe recipe = new Recipe(name, price);
+		Recipe recipe = new Recipe(id, name, price);
 		boolean result = recipeRepository.createRecipe(recipe);
 		
 		if (result) {
@@ -39,25 +45,23 @@ public class RecipeController {
 		return recipes;
 	}
 	
-	public Recipe searchRecipe(String name) {
-		Recipe recipe = recipeRepository.findRecipeById(name);
+	public Recipe searchRecipe(String id) {
+		Recipe recipe = recipeRepository.findRecipeById(id);
 		return recipe;
 	}
 	
-	public String updateRecipes(Recipe recipe, String name, double price) {
+	public String updateRecipes(Recipe recipe, String id, String name, double price) {
 		
-		Recipe updateRecipe = new Recipe(name, price);
+		Recipe updateRecipe = new Recipe(id ,name, price);
 		recipeRepository.updateRecipe(recipe, updateRecipe);
 		return null;
 		
 	}
 	
 	public boolean deleteRecipe(String id) {
-		
 		return recipeRepository.deleteRecipe(id);
 		
 	}
-	
 	
 	
 

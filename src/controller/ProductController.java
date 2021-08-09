@@ -10,7 +10,7 @@ public class ProductController {
 	
 	ProductRepository productRepository = new ProductRepository();
 	
-	public String createProduct(String brand, String name, double price, int quantity) {
+	public String createProduct(String id , String brand, String name, double price, int quantity) {
 		
 		if(brand.trim().length() <= 3) {
 			return "La marca debe ser mayor a 3 caracteres";
@@ -24,8 +24,8 @@ public class ProductController {
 		if(quantity < 1) {
 			return "la cantidad debe ser mayor a  0";
 		}
-		
-	Product product = new Product(brand, name, price, quantity);
+		 
+	Product product = new Product(id ,brand, name, price, quantity);
 	boolean result = productRepository.createProduct(product);
 	
 	if (result) {
@@ -49,9 +49,9 @@ public class ProductController {
 		return product;	
 	}
 	
-	public String productUpdate(Product product, String brand, String name, double price, int quantity) {
+	public String productUpdate(Product product, String id, String brand, String name, double price, int quantity) {
 		
-		Product productUpdate = new Product(brand ,name ,price ,quantity );
+		Product productUpdate = new Product(id, brand ,name ,price ,quantity );
 		productRepository.productUpdate(product, productUpdate);
 		
 		return null;

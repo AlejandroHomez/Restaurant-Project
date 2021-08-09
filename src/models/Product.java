@@ -4,7 +4,7 @@ public class Product {
 	
 	
 	// Attributes
-	
+	private String id;
 	private String brand;
 	private String name;
 	private double price;
@@ -12,8 +12,8 @@ public class Product {
 	
 	//Methods
 	
-	public Product(String brand, String name, double price, int quiantity) {
-		
+	public Product(String id, String brand, String name, double price, int quiantity) {
+		this.id 	   = id;
 		this.brand     = brand;
 		this.name      = name;
 		this.price     = price;
@@ -22,6 +22,9 @@ public class Product {
 	}
 	
 	//Gets
+	public String getId() {
+		return id;
+	}
 
 	public String getBrand() {
 		return brand;
@@ -40,6 +43,10 @@ public class Product {
 	}
 	
 	//Sets
+	
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 	public void setBrand(String brand) {
 		this.brand = brand;
@@ -60,7 +67,7 @@ public class Product {
 	
 	@Override
 	public String toString() {
-		return "Product[ *Marca: " + brand + " *Nombre: " +  name + " *Precio: " + price + " *Cantidad: " + quiantity+ " ]";
+		return "Product[ *ID: " + id +  " *Marca: " + brand + " *Nombre: " +  name + " *Precio: " + price + " *Cantidad: " + quiantity+ " ]";
 	}
 	
 

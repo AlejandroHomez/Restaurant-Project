@@ -20,6 +20,9 @@ public class TableController {
 		if(location.trim().length() <= 5 ) {
 			return "La ubicacion de la mesa debe tener mas de 5 caracteres";
 		}
+		if(location.trim().length() > 30 ) {
+			return "La ubicacion de la mesa debe tener menos de 20 caracteres";
+		}
 		
 		Table table = new Table(numberTable, capacity, location);
 		boolean result = tableRepocitory.crateTable(table);

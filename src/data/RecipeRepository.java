@@ -20,11 +20,11 @@ public class RecipeRepository {
 		return recipes;
 	}
 	
-	public Recipe findRecipeById(String name) {
+	public Recipe findRecipeById(String id) {
 		for(int i = 0 ; i < recipes.size() ; i++ ) {
 			Recipe recipe = recipes.get(i);
 			
-			if (recipe.getName().equals(name)) {
+			if (recipe.getId().equals(id)) {
 				return recipe;
 			}
 		}
@@ -43,7 +43,7 @@ public class RecipeRepository {
 	public boolean deleteRecipe(String id) {
 		for(int i = 0 ; i < recipes.size(); i++) {
 			Recipe recipe = recipes.get(i);
-			if(recipe.getName().equals(id)) {
+			if(recipe.getId().equals(id)) {
 				recipes.remove(i);
 				return true;
 			}

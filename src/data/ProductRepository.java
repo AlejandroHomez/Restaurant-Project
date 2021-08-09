@@ -20,13 +20,13 @@ private ArrayList<Product> products = new ArrayList<Product>();
 		return products;
 	}
 	
-	public Product findProductById (String name) {
+	public Product findProductById (String id) {
 		
 		for ( int i = 0 ; i < products.size() ; i++) {
 			
 			Product product = products.get(i);
 				
-			if (product.getName().equals(name)) {
+			if (product.getId().equals(id)) {
 				return product;
 				}
 			
@@ -47,7 +47,7 @@ private ArrayList<Product> products = new ArrayList<Product>();
 	public boolean deleteProduct(String id) {
 		for(int i = 0 ; i < products.size(); i++) {
 			Product product = products.get(i);
-			if(product.getName().equals(id)) {
+			if(product.getId().equals(id)) {
 				products.remove(i);
 				return true;
 			}
